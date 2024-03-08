@@ -21,6 +21,7 @@ class Home extends StatelessWidget {
       child: BlocBuilder<AppBloc, AppState>(
         builder: (context, state) {
           return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
             title: 'Weather App',
             routerConfig: AppRouter.router,
             theme: ThemeData(
