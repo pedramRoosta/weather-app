@@ -21,9 +21,10 @@ City _$CityFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$City {
   String get name => throw _privateConstructorUsedError;
-  String get lat => throw _privateConstructorUsedError;
-  String get lon => throw _privateConstructorUsedError;
+  double get lat => throw _privateConstructorUsedError;
+  double get lon => throw _privateConstructorUsedError;
   String get country => throw _privateConstructorUsedError;
+  String? get state => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,8 @@ abstract class $CityCopyWith<$Res> {
   factory $CityCopyWith(City value, $Res Function(City) then) =
       _$CityCopyWithImpl<$Res, City>;
   @useResult
-  $Res call({String name, String lat, String lon, String country});
+  $Res call(
+      {String name, double lat, double lon, String country, String? state});
 }
 
 /// @nodoc
@@ -55,6 +57,7 @@ class _$CityCopyWithImpl<$Res, $Val extends City>
     Object? lat = null,
     Object? lon = null,
     Object? country = null,
+    Object? state = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -64,15 +67,19 @@ class _$CityCopyWithImpl<$Res, $Val extends City>
       lat: null == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       lon: null == lon
           ? _value.lon
           : lon // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       country: null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
+      state: freezed == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -84,7 +91,8 @@ abstract class _$$CityImplCopyWith<$Res> implements $CityCopyWith<$Res> {
       __$$CityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String lat, String lon, String country});
+  $Res call(
+      {String name, double lat, double lon, String country, String? state});
 }
 
 /// @nodoc
@@ -101,6 +109,7 @@ class __$$CityImplCopyWithImpl<$Res>
     Object? lat = null,
     Object? lon = null,
     Object? country = null,
+    Object? state = freezed,
   }) {
     return _then(_$CityImpl(
       name: null == name
@@ -110,15 +119,19 @@ class __$$CityImplCopyWithImpl<$Res>
       lat: null == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       lon: null == lon
           ? _value.lon
           : lon // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       country: null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
+      state: freezed == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -130,7 +143,8 @@ class _$CityImpl extends _City {
       {required this.name,
       required this.lat,
       required this.lon,
-      required this.country})
+      required this.country,
+      this.state})
       : super._();
 
   factory _$CityImpl.fromJson(Map<String, dynamic> json) =>
@@ -139,15 +153,17 @@ class _$CityImpl extends _City {
   @override
   final String name;
   @override
-  final String lat;
+  final double lat;
   @override
-  final String lon;
+  final double lon;
   @override
   final String country;
+  @override
+  final String? state;
 
   @override
   String toString() {
-    return 'City(name: $name, lat: $lat, lon: $lon, country: $country)';
+    return 'City(name: $name, lat: $lat, lon: $lon, country: $country, state: $state)';
   }
 
   @override
@@ -158,12 +174,13 @@ class _$CityImpl extends _City {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.lat, lat) || other.lat == lat) &&
             (identical(other.lon, lon) || other.lon == lon) &&
-            (identical(other.country, country) || other.country == country));
+            (identical(other.country, country) || other.country == country) &&
+            (identical(other.state, state) || other.state == state));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, lat, lon, country);
+  int get hashCode => Object.hash(runtimeType, name, lat, lon, country, state);
 
   @JsonKey(ignore: true)
   @override
@@ -182,9 +199,10 @@ class _$CityImpl extends _City {
 abstract class _City extends City {
   const factory _City(
       {required final String name,
-      required final String lat,
-      required final String lon,
-      required final String country}) = _$CityImpl;
+      required final double lat,
+      required final double lon,
+      required final String country,
+      final String? state}) = _$CityImpl;
   const _City._() : super._();
 
   factory _City.fromJson(Map<String, dynamic> json) = _$CityImpl.fromJson;
@@ -192,11 +210,13 @@ abstract class _City extends City {
   @override
   String get name;
   @override
-  String get lat;
+  double get lat;
   @override
-  String get lon;
+  double get lon;
   @override
   String get country;
+  @override
+  String? get state;
   @override
   @JsonKey(ignore: true)
   _$$CityImplCopyWith<_$CityImpl> get copyWith =>

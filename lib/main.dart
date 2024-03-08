@@ -1,6 +1,9 @@
-import 'package:Weather_app/services/router.dart';
-import 'package:Weather_app/services/service_locator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/blocs/app_bloc/app_bloc.dart';
+
+import 'package:weather_app/services/router.dart';
+import 'package:weather_app/services/service_locator.dart';
 
 void main() {
   ServiceLocator.setup();
@@ -13,9 +16,24 @@ class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Weather App',
-      routerConfig: router,
+    return BlocProvider(
+      create: (context) => AppBloc(),
+      child: BlocBuilder<AppBloc, AppState>(
+        builder: (context, state) {
+          return MaterialApp.router(
+            title: 'Weather App',
+            routerConfig: AppRouter.router,
+            theme: ThemeData(
+              useMaterial3: true,
+              colorScheme: ColorScheme.fromSeed(
+                seedColor: Colors.purple,
+                brightness:
+                    state.isDarkMode ? Brightness.dark : Brightness.light,
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }

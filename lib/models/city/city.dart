@@ -9,9 +9,10 @@ class City with _$City {
 
   const factory City({
     required String name,
-    required String lat,
-    required String lon,
+    required double lat,
+    required double lon,
     required String country,
+    String? state,
   }) = _City;
 
   factory City.fromJson(Map<String, Object?> json) => _$CityFromJson(json);

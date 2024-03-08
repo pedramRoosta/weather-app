@@ -8,9 +8,10 @@ part of 'city.dart';
 
 _$CityImpl _$$CityImplFromJson(Map<String, dynamic> json) => _$CityImpl(
       name: json['name'] as String,
-      lat: json['lat'] as String,
-      lon: json['lon'] as String,
+      lat: (json['lat'] as num).toDouble(),
+      lon: (json['lon'] as num).toDouble(),
       country: json['country'] as String,
+      state: json['state'] as String?,
     );
 
 Map<String, dynamic> _$$CityImplToJson(_$CityImpl instance) =>
@@ -19,4 +20,5 @@ Map<String, dynamic> _$$CityImplToJson(_$CityImpl instance) =>
       'lat': instance.lat,
       'lon': instance.lon,
       'country': instance.country,
+      'state': instance.state,
     };
