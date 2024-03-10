@@ -6,8 +6,8 @@ import 'package:weather_app/blocs/app_bloc/app_bloc.dart';
 import 'package:weather_app/blocs/weather_bloc/weather_bloc.dart';
 import 'package:weather_app/services/weather_service.dart';
 
-import 'mocks.dart';
-import 'model_data.dart';
+import '../mocks.dart';
+import '../model_data.dart';
 
 void main() {
   late WeatherBloc weatherBloc;

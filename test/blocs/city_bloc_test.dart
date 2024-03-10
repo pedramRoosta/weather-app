@@ -8,7 +8,7 @@ import 'package:weather_app/models/city/city.dart';
 import 'package:weather_app/services/location_service.dart';
 import 'package:weather_app/services/weather_service.dart';
 
-import 'mocks.dart';
+import '../mocks.dart';
 
 void main() {
   group('CityBloc', () {

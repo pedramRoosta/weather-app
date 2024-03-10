@@ -34,6 +34,8 @@ Stay connected to the latest weather updates by simply pulling down on the scree
 
 ![alt text](screenshots/swipe.png)
 
+## Tests:
 
-Experience the perfect blend of functionality and style with FlutterWeather, where accurate weather information meets an elegant and customizable design. Download the app today and step into a world of weather forecasting that's as dynamic as your lifestyle.
+This project contains tests for Blocs and widgets, You see them inside the test folder
+
 
