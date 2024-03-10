@@ -61,16 +61,20 @@ class CitySearchScreen extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               IconButton(
+                                key: const Key('searchIconButton'),
                                 icon: const Icon(Icons.search),
                                 onPressed: () {
-                                  context.read<CityBloc>().add(
-                                        CityEvent.searchByName(
-                                          cityName: textFieldctrl.text,
-                                        ),
-                                      );
+                                  if (textFieldctrl.text.isNotEmpty) {
+                                    context.read<CityBloc>().add(
+                                          CityEvent.searchByName(
+                                            cityName: textFieldctrl.text,
+                                          ),
+                                        );
+                                  }
                                 },
                               ),
                               IconButton(
+                                key: const Key('currentLocationIconButton'),
                                 icon: const Icon(Icons.my_location),
                                 onPressed: () {
                                   context.read<CityBloc>().add(

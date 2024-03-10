@@ -14,8 +14,8 @@ part 'city_state.dart';
 part 'city_bloc.freezed.dart';
 
 class CityBloc extends Bloc<CityEvent, CityState> {
-  final appService = GetIt.I.get<IAppService>();
-  final locationService = GetIt.I.get<ILocationService>();
+  final appService = GetIt.I<IAppService>();
+  final locationService = GetIt.I<ILocationService>();
 
   CityBloc() : super(CityState()) {
     on<CityEventSearchByName>(_searchCityByName);
@@ -87,48 +87,4 @@ class CityBloc extends Bloc<CityEvent, CityState> {
       );
     }
   }
-
-  // void _logout(
-  //   UserEventLogout event,
-  //   Emitter<UserState> emit,
-  // ) async {
-  //   emit(
-  //     state.copyWith(
-  //       user: null,
-  //     ),
-  //   );
-  //   AppConstants.rootNavigatorKey.currentContext!.go(Routes.login.path);
-  // }
-
-  // void _updateTaxInfo(
-  //   UserEventUpdateTaxInfo event,
-  //   Emitter<UserState> emit,
-  // ) async {
-  //   try {
-  //     emit(
-  //       state.copyWith(
-  //         isLoading: true,
-  //         userError: null,
-  //       ),
-  //     );
-  //     await userService.updateUserTaxData(
-  //       userId: state.user!.userId,
-  //       data: event.taxData,
-  //     );
-  //     final userTaxData =
-  //         await userService.getUserTaxData(userId: state.user!.userId);
-  //     emit(
-  //       state.copyWith(
-  //         isLoading: false,
-  //         user: state.user!.copyWith(userTaxData: userTaxData),
-  //       ),
-  //     );
-  //   } catch (e) {
-  //     emit(
-  //       state.copyWith(
-  //           isLoading: false,
-  //           userError: 'Error updating the tax info. Please try again.'),
-  //     );
-  //   }
-  // }
 }
